@@ -1,9 +1,8 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:healthtest/pages/call_screen.dart';
-import 'package:healthtest/pages/camera_screen.dart';
-import 'package:healthtest/pages/chat_screen.dart';
-import 'package:healthtest/pages/status_screen.dart';
+import 'package:healthtest/pages/stressQuestionScreen.dart';
+import 'package:healthtest/pages/guiltScreen.dart';
+import 'package:healthtest/pages/colereScreen.dart';
 
 
 class WhatsAppHome extends StatefulWidget {
@@ -23,34 +22,34 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
   void initState() {
     super.initState();
 
-    _tabController = TabController(vsync: this, initialIndex: 1, length: 4);
-    _tabController.addListener(() {
-      if (_tabController.index == 1) {
-        showFab = true;
-      } else {
-        showFab = false;
-      }
-      setState(() {});
-    });
+    _tabController = TabController(vsync: this, initialIndex: 0, length: 3);
+    // _tabController.addListener(() {
+    //   if (_tabController.index == 1) {
+    //     showFab = true;
+    //   } else {
+    //     showFab = false;
+    //   }
+    //   setState(() {});
+    // });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("WhatsApp"),
+        title: Text("Tests santé"),
         elevation: 0.7,
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: Colors.white,
           tabs: <Widget>[
-            Tab(icon: Icon(Icons.camera_alt)),
-            Tab(text: "CHATS"),
+            // Tab(icon: Icon(Icons.camera_alt)),
+            Tab(text: "STRESS"),
             Tab(
-              text: "STATUS",
+              text: "COLERE",
             ),
             Tab(
-              text: "CALLS",
+              text: "CULPABILITE",
             ),
           ],
         ),
@@ -65,10 +64,10 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
       body: TabBarView(
         controller: _tabController,
         children: <Widget>[
-          CameraScreen(widget.cameras),
-          ChatScreen(),
-          StatusScreen(),
-          CallsScreen(),
+          // CameraScreen(widget.cameras),
+          StressScreen(),
+          ColereScreen(),
+          GuiltScreen(),
         ],
       ),
       floatingActionButton: showFab

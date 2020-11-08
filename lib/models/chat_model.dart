@@ -1,9 +1,10 @@
 class QuestionItem {
-  String libelle;
+  String libelleFr;
+  String libelleUK;
   bool checked;
   bool isEven;
 
-  QuestionItem({this.libelle, this.isEven, this.checked = false});
+  QuestionItem({this.libelleFr, this.libelleUK, this.isEven, this.checked = false});
 }
 
 class ChatModel {

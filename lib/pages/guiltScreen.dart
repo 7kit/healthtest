@@ -10,35 +10,47 @@ class GuiltScreen extends StatefulWidget {
 
 class GuiltScreenState extends State<GuiltScreen> {
   List<QuestionItem> guiltQuestion =[
-  new QuestionItem(libelle: 'Avez-vous grandi dans un environnement où régnaient l\'autoritarisme et l\'intimidation?'),
-  new QuestionItem(libelle: 'Est-il très difficile de pardonner vos propres erreurs?'),
-  new QuestionItem(libelle: 'Est-il difficile pour vous de pardonner à ceux qui vous offensent?'),
-  new QuestionItem(libelle: 'Avez-vous constamment peur d\'enfreindre une règle sociale?'),
-  new QuestionItem(libelle: 'Avez-vous peur face à la possibilité de mauvaises nouvelles?'),
-  new QuestionItem(libelle: 'Vous sentez-vous effrayé chaque fois que vous pensez à l\'avenir?'),
-  new QuestionItem(libelle: 'Êtes-vous très contrarié lorsque quelque chose ne se passe pas parfaitement?'),
-  new QuestionItem(libelle: 'Vous sentez-vous excessivement gêné par un manque de ponctualité?'),
-  new QuestionItem(libelle: 'Vous sentez-vous souvent en insécurité?'),
-  new QuestionItem(libelle: 'Vous sentez-vous facilement en colère contre vous-même et contre les autres?'),
-  new QuestionItem(libelle: 'Vous inquiétez-vous excessivement de ce que les autres peuvent penser de vous?'),
-  new QuestionItem(libelle: 'Dans votre imagination, Dieu est-il toujours bouleversé à cause de vos péchés et de vos imperfections?'),
+  new QuestionItem(libelleFr: 'Avez-vous grandi dans un environnement où régnaient l\'autoritarisme et l\'intimidation?'),
+  new QuestionItem(libelleFr: 'Est-il très difficile de pardonner vos propres erreurs?'),
+  new QuestionItem(libelleFr: 'Est-il difficile pour vous de pardonner à ceux qui vous offensent?'),
+  new QuestionItem(libelleFr: 'Avez-vous constamment peur d\'enfreindre une règle sociale?'),
+  new QuestionItem(libelleFr: 'Avez-vous peur face à la possibilité de mauvaises nouvelles?'),
+  new QuestionItem(libelleFr: 'Vous sentez-vous effrayé chaque fois que vous pensez à l\'avenir?'),
+  new QuestionItem(libelleFr: 'Êtes-vous très contrarié lorsque quelque chose ne se passe pas parfaitement?'),
+  new QuestionItem(libelleFr: 'Vous sentez-vous excessivement gêné par un manque de ponctualité?'),
+  new QuestionItem(libelleFr: 'Vous sentez-vous souvent en insécurité?'),
+  new QuestionItem(libelleFr: 'Vous sentez-vous facilement en colère contre vous-même et contre les autres?'),
+  new QuestionItem(libelleFr: 'Vous inquiétez-vous excessivement de ce que les autres peuvent penser de vous?'),
+  new QuestionItem(libelleFr: 'Dans votre imagination, Dieu est-il toujours bouleversé à cause de vos péchés et de vos imperfections?'),
 ];
+
+int score = 0;
   @override
   Widget build(BuildContext context) {
-    return new ListView.builder(
-        itemCount: guiltQuestion.length,
-        itemBuilder: (context, i) => new Row(
-              children: [
-                Expanded(child: Text(guiltQuestion[i].libelle)),
-                Checkbox(
-                    value: guiltQuestion[i].checked,
-                    onChanged: (bool value) {
-                      guiltQuestion[i].checked = value;
-                      setState(() {
-                        
-                      });
-                    }),
-              ],
-            ));
+    return Column(
+      children: [
+        Text(score.toString()),
+        Expanded(
+                  child: new ListView.builder(
+              itemCount: guiltQuestion.length,
+              itemBuilder: (context, i) => new Row(
+                    children: [
+                      Expanded(child: Text(guiltQuestion[i].libelleFr)),
+                      Checkbox(
+                          value: guiltQuestion[i].checked,
+                          onChanged: (bool value) {
+                            guiltQuestion[i].checked = value;
+                            setState(() {
+                              if(value == true){
+                                score++;
+                              }
+                              else score--;
+                            });
+                          }),
+                    ],
+                  )),
+        ),
+      ],
+    );
   }
 }

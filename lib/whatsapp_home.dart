@@ -1,4 +1,3 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:healthtest/pages/stressQuestionScreen.dart';
 import 'package:healthtest/pages/guiltScreen.dart';
@@ -6,8 +5,8 @@ import 'package:healthtest/pages/colereScreen.dart';
 
 
 class WhatsAppHome extends StatefulWidget {
-  final List<CameraDescription> cameras;
-  WhatsAppHome({this.cameras});
+  // final List<CameraDescription> cameras;
+  WhatsAppHome();
 
   @override
   _WhatsAppHomeState createState() => _WhatsAppHomeState();

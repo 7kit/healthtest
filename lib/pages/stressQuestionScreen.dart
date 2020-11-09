@@ -168,7 +168,7 @@ class StressScreenState extends State<StressScreen> {
           runAlignment: WrapAlignment.center,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            Text('Calculer'),
+            Text('Calculer', style: TextStyle(fontFamily: 'Goldman', color: Colors.white)),
             Icon(
               Icons.check,
               size: 20,
@@ -265,7 +265,7 @@ class StressScreenState extends State<StressScreen> {
                       Expanded(
                           child: Text(isFrench
                               ? stressQuestion[i].libelleFr
-                              : stressQuestion[i].libelleUK)),
+                              : stressQuestion[i].libelleUK, style: TextStyle(fontFamily: 'Oswald'),)),
                       Checkbox(
                           value: stressQuestion[i].checked,
                           onChanged: (bool value) {

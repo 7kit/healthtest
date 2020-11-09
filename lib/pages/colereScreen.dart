@@ -76,7 +76,7 @@ class ColereScreenState extends State<ColereScreen> {
           runAlignment: WrapAlignment.center,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            Text('Calculer'),
+            Text('Calculer', style: TextStyle(fontFamily: 'Goldman', color: Colors.white)),
             Icon(Icons.check, size: 20,color: Colors.white70,),
           ],
         ),
@@ -164,7 +164,7 @@ class ColereScreenState extends State<ColereScreen> {
                       Expanded(
                         child: Text(isFrench
                         ?colereQuestions[i].libelleFr
-                        :colereQuestions[i].libelleUK),
+                        :colereQuestions[i].libelleUK, style: TextStyle(fontFamily: 'Oswald')),
                         ),
                       Checkbox(
                           value: colereQuestions[i].checked,

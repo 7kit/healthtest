@@ -81,7 +81,7 @@ class GuiltScreenState extends State<GuiltScreen> {
           runAlignment: WrapAlignment.center,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            Text('Calculer'),
+            Text('Calculer', style: TextStyle(fontFamily: 'Goldman', color: Colors.white)),
             Icon(
               Icons.check,
               size: 20,
@@ -168,7 +168,7 @@ class GuiltScreenState extends State<GuiltScreen> {
                       Expanded(
                           child: Text(isFrench
                               ? guiltQuestion[i].libelleFr
-                              : guiltQuestion[i].libelleUK)),
+                              : guiltQuestion[i].libelleUK, style: TextStyle(fontFamily: 'Goldman'),)),
                       Checkbox(
                           value: guiltQuestion[i].checked,
                           onChanged: (bool value) {

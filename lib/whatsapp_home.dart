@@ -36,7 +36,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tests santé"),
+        title: Text("Tests santé", style: TextStyle(fontFamily: 'Goldman'),),
         elevation: 0.7,
         bottom: TabBar(
           controller: _tabController,
@@ -69,16 +69,6 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           GuiltScreen(),
         ],
       ),
-      floatingActionButton: showFab
-          ? FloatingActionButton(
-              backgroundColor: Theme.of(context).accentColor,
-              child: Icon(
-                Icons.message,
-                color: Colors.white,
-              ),
-              onPressed: () => print("open chats"),
-            )
-          : null,
     );
   }
 }

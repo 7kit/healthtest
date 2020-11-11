@@ -105,7 +105,10 @@ class ColereScreenState extends State<ColereScreen> {
             ),
             child: new Wrap(
               children: [
-                Text(message()),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(message(), textAlign: TextAlign.justify, style: TextStyle(fontFamily: 'Oswald'),),
+                ),
               ],
             ),
           );
@@ -125,6 +128,9 @@ class ColereScreenState extends State<ColereScreen> {
           ? 'Vous avez ce qu’il faut pour affronter la colère et la haine. Continuez de cette manière, parce que vous êtes une personne qu’il est difficile de mettre en colère.'
           : 'You are in the right place to face anger and hate. Continue in this manner, because you are a person who is hard to upset.';
     }
+    else {
+      return isFrench?'Veuillez s\'il vous plaît reprendre le test !\n Merci bien !':'Please retake the test again! \n Thank you very much!';
+    }
   }
 
   @override
@@ -134,6 +140,7 @@ class ColereScreenState extends State<ColereScreen> {
         Row(
           children: [
             Expanded(
+              flex: 3,
               child: InkWell(
                   onTap: () {
                     showResult(context);
@@ -162,9 +169,12 @@ class ColereScreenState extends State<ColereScreen> {
               itemBuilder: (context, i) => new Row(
                     children: [
                       Expanded(
-                        child: Text(isFrench
-                        ?colereQuestions[i].libelleFr
-                        :colereQuestions[i].libelleUK, style: TextStyle(fontFamily: 'Oswald')),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(isFrench
+                          ?colereQuestions[i].libelleFr
+                          :colereQuestions[i].libelleUK, style: TextStyle(fontFamily: 'Oswald')),
+                        ),
                         ),
                       Checkbox(
                           value: colereQuestions[i].checked,

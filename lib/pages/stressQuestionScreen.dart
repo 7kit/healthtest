@@ -201,7 +201,10 @@ class StressScreenState extends State<StressScreen> {
             ),
             child: new Wrap(
               children: [
-                Text(message()),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(message(), textAlign: TextAlign.justify, style: TextStyle(fontFamily: 'Oswald'),),
+                ),
               ],
             ),
           );
@@ -263,9 +266,12 @@ class StressScreenState extends State<StressScreen> {
               itemBuilder: (context, i) => new Row(
                     children: [
                       Expanded(
-                          child: Text(isFrench
-                              ? stressQuestion[i].libelleFr
-                              : stressQuestion[i].libelleUK, style: TextStyle(fontFamily: 'Oswald'),)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(isFrench
+                                ? stressQuestion[i].libelleFr
+                                : stressQuestion[i].libelleUK, style: TextStyle(fontFamily: 'Oswald'),),
+                          )),
                       Checkbox(
                           value: stressQuestion[i].checked,
                           onChanged: (bool value) {

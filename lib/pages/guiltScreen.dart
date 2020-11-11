@@ -113,8 +113,15 @@ class GuiltScreenState extends State<GuiltScreen> {
                   topRight: Radius.circular(25.0)),
             ),
             child: new Wrap(
+              runAlignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              alignment: WrapAlignment.center,
+              runSpacing: 2,
               children: [
-                Text(message()),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(message(), textAlign: TextAlign.justify, style: TextStyle(fontFamily: 'Oswald'),),
+                ),
               ],
             ),
           );
@@ -127,7 +134,7 @@ class GuiltScreenState extends State<GuiltScreen> {
           ? 'Vous êtes enclin à une fausse culpabilité et devriez chercher des solutions. Commencez par appliquer les conseils du septième chapitre du livre titré : \"Le sentiment de culpabilité\" et si ce n’est pas suffisant, tournez-vous vers un professionnel.'
           : 'You are prone to false guilt and should seek solutions. Begin with the counsel in the seventh chapter titled \"Sense of Guilt\", and if this is not enough, seek the help of a professional.';
     } else
-      return isFrench ? 'Continuez Ainsi !' : 'Keep it On !';
+      return isFrench ? 'Vous êtes bien protégé contre la mauvaise culpabilité !' : 'You are well protected against bad guilt !';
   }
 
   @override
@@ -166,9 +173,12 @@ class GuiltScreenState extends State<GuiltScreen> {
               itemBuilder: (context, i) => new Row(
                     children: [
                       Expanded(
-                          child: Text(isFrench
-                              ? guiltQuestion[i].libelleFr
-                              : guiltQuestion[i].libelleUK, style: TextStyle(fontFamily: 'Goldman'),)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(isFrench
+                                ? guiltQuestion[i].libelleFr
+                                : guiltQuestion[i].libelleUK, style: TextStyle(fontFamily: 'Oswald'),),
+                          )),
                       Checkbox(
                           value: guiltQuestion[i].checked,
                           onChanged: (bool value) {

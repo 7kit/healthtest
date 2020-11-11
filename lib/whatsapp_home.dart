@@ -53,10 +53,6 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           ],
         ),
         actions: <Widget>[
-          Icon(Icons.search),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5.0),
-          ),
           Icon(Icons.more_vert)
         ],
       ),

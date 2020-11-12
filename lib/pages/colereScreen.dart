@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import '../models/chat_model.dart';
 
 class ColereScreen extends StatefulWidget {
+  final bool estFrench;
+
+  const ColereScreen({Key key, this.estFrench}) : super(key: key);
   @override
   ColereScreenState createState() {
     return new ColereScreenState();
@@ -76,7 +79,7 @@ class ColereScreenState extends State<ColereScreen> {
           runAlignment: WrapAlignment.center,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            Text('Calculer', style: TextStyle(fontFamily: 'Goldman', color: Colors.white)),
+            Text(widget.estFrench?'Evaluer':'Assess', style: TextStyle(fontFamily: 'Goldman', color: Colors.white)),
             Icon(Icons.check, size: 20,color: Colors.white70,),
           ],
         ),
@@ -104,6 +107,10 @@ class ColereScreenState extends State<ColereScreen> {
                   topRight: Radius.circular(25.0)),
             ),
             child: new Wrap(
+              runAlignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              alignment: WrapAlignment.center,
+              runSpacing: 2,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -140,27 +147,29 @@ class ColereScreenState extends State<ColereScreen> {
         Row(
           children: [
             Expanded(
-              flex: 3,
-              child: InkWell(
-                  onTap: () {
-                    showResult(context);
-                  },
-                  child: myButton()),
-            ),
-            Expanded(
-              flex: 1,
-              child: InkWell(
-                onTap: () {
-                  print('est en francais $isFrench');
-                  setState(() {
-                    isFrench = !isFrench;
-                  });
-                },
-                child: isFrench
-                    ? Image.asset('assets/france.png', width: 40, height: 40)
-                    : Image.asset('assets/british.png', width: 40, height: 40),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: InkWell(
+                    onTap: () {
+                      showResult(context);
+                    },
+                    child: myButton()),
               ),
             ),
+            // Expanded(
+            //   flex: 1,
+            //   child: InkWell(
+            //     onTap: () {
+            //       print('est en francais $isFrench');
+            //       setState(() {
+            //         isFrench = !isFrench;
+            //       });
+            //     },
+            //     child: isFrench
+            //         ? Image.asset('assets/france.png', width: 40, height: 40)
+            //         : Image.asset('assets/british.png', width: 40, height: 40),
+            //   ),
+            // ),
           ],
         ),
         Expanded(
@@ -171,7 +180,7 @@ class ColereScreenState extends State<ColereScreen> {
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text(isFrench
+                          child: Text(widget.estFrench
                           ?colereQuestions[i].libelleFr
                           :colereQuestions[i].libelleUK, style: TextStyle(fontFamily: 'Oswald')),
                         ),

@@ -16,6 +16,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
   bool showFab = true;
+  bool isFrench = true;
 
   @override
   void initState() {
@@ -36,23 +37,34 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tests santé", style: TextStyle(fontFamily: 'Goldman'),),
+        title: Text(isFrench?"Tests santé":"Health Tests", style: TextStyle(fontFamily: 'Goldman'),),
         elevation: 0.7,
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: Colors.white,
           tabs: <Widget>[
             // Tab(icon: Icon(Icons.camera_alt)),
-            Tab(text: "STRESS"),
+            Tab(text:"STRESS"),
             Tab(
-              text: "COLERE",
+              text: isFrench? "COLERE":"ANGER",
             ),
             Tab(
-              text: "CULPABILITE",
+              text:isFrench? "CULPABILITE":"GUILT",
             ),
           ],
         ),
         actions: <Widget>[
+          InkWell(
+            onTap: (){
+              setState(() {
+                    isFrench = !isFrench;
+                  });
+            },
+                      child: isFrench
+                      ? Image.asset('assets/france.png', width: 30, height: 30)
+                      : Image.asset('assets/british.png', width: 30, height: 30),
+          ),
+          Padding(padding: EdgeInsets.symmetric(horizontal: 7)),
           Icon(Icons.more_vert)
         ],
       ),
@@ -60,9 +72,9 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
         controller: _tabController,
         children: <Widget>[
           // CameraScreen(widget.cameras),
-          StressScreen(),
-          ColereScreen(),
-          GuiltScreen(),
+          StressScreen(estFrench:isFrench,),
+          ColereScreen(estFrench: isFrench,),
+          GuiltScreen(estFrench: isFrench,),
         ],
       ),
     );

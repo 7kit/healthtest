@@ -123,20 +123,20 @@ class ColereScreenState extends State<ColereScreen> {
   }
   String message() {
     if (score >= 8) {
-      return isFrench
+      return widget.estFrench
           ? 'Cherchez de l’aide aussitôt que possible afin de pouvoir contrôler votre colère. Vos relations personnelles familiales et professionnelles sont en grand danger.'
           : 'Seek help as soon as possible so you can control your anger. Your personal, family, and work relationships are at serious risk.';
     } else if (score >= 4 && score <= 7) {
-      return isFrench
+      return widget.estFrench
           ? 'C’est le signe que votre colère est proche d’un niveau dangereux. Cherchez à développer la patience et la tolérance, et vous pourrez vivre de manière différente, en gardant votre calme et en cédant. Observez les autres et apprenez à obtenir ce que vous voulez en usant de bonnes manières.'
           : 'This is a warning that your anger is near a dangerous level. Seek to develop patience and tolerance, and you will be able to live in different ways, keeping calm and yielding. Observe others and learn how to get what you want using good manners.';
     } else if (score <= 3 && score >= 0) {
-      return isFrench
+      return widget.estFrench
           ? 'Vous avez ce qu’il faut pour affronter la colère et la haine. Continuez de cette manière, parce que vous êtes une personne qu’il est difficile de mettre en colère.'
           : 'You are in the right place to face anger and hate. Continue in this manner, because you are a person who is hard to upset.';
     }
     else {
-      return isFrench?'Veuillez s\'il vous plaît reprendre le test !\n Merci bien !':'Please retake the test again! \n Thank you very much!';
+      return widget.estFrench?'Veuillez s\'il vous plaît reprendre le test !\n Merci bien !':'Please retake the test again! \n Thank you very much!';
     }
   }
 

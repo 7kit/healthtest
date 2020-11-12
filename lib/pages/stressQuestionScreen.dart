@@ -220,15 +220,15 @@ class StressScreenState extends State<StressScreen> {
 
   String message() {
     if (score >= 0 && score <= 7) {
-      return isFrench
+      return widget.estFrench
           ? 'Vous êtes bien protégé contre le stress. Peut-être avez-vous besoin de faire un petit changement pour avoir une meilleure motivation dans la vie.'
           : 'You are well protected against stress. Perhaps you need to make a little change to obtain even better motivation in your life.';
     } else if (score <= 13) {
-      return isFrench
+      return widget.estFrench
           ? 'Vous avez un niveau moyen de stress. Les choses peuvent aller dans une direction ou une autre. Il est important d’adopter maintenant des mesures préventives contre l’excès de stress. '
           : 'You have a medium level of stress. Things can go in one direction or the other. It is important to adopt preventative measures against too much stress now';
     } else {
-      return isFrench
+      return widget.estFrench
           ? 'C’est un signal de stress élevé et un appel à faire l’examen de vos habitudes de vie, de l’environnement dans lequel vous vivez, de votre attitude mentale et de vos relations, et à faire des plans pour les améliorer'
           : 'This is a warning of high stress in your life and a call for you to make an examination of your lifestyle habits, the environment in which you live, your mental attitude, and your relationships, and make plans to improve them all.';
     }

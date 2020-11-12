@@ -133,11 +133,11 @@ class GuiltScreenState extends State<GuiltScreen> {
 
   String message() {
     if (score > 3) {
-      return isFrench
+      return widget.estFrench
           ? 'Vous êtes enclin à une fausse culpabilité et devriez chercher des solutions. Commencez par appliquer les conseils du septième chapitre du livre titré : \"Le sentiment de culpabilité\" et si ce n’est pas suffisant, tournez-vous vers un professionnel.'
           : 'You are prone to false guilt and should seek solutions. Begin with the counsel in the seventh chapter titled \"Sense of Guilt\", and if this is not enough, seek the help of a professional.';
     } else
-      return isFrench ? 'Vous êtes bien protégé contre la mauvaise culpabilité !' : 'You are well protected against bad guilt !';
+      return widget.estFrench ? 'Vous êtes bien protégé contre la mauvaise culpabilité !' : 'You are well protected against bad guilt !';
   }
 
   @override

@@ -61,8 +61,8 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
                   });
             },
                       child: isFrench
-                      ? Image.asset('assets/france.png', width: 30, height: 30)
-                      : Image.asset('assets/british.png', width: 30, height: 30),
+                      ? Image.asset('assets/british.png', width: 30, height: 30)
+                      : Image.asset('assets/france.png', width: 30, height: 30),
           ),
           Padding(padding: EdgeInsets.symmetric(horizontal: 5)),
           // Icon(Icons.more_vert)

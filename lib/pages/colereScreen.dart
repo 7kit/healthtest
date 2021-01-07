@@ -185,7 +185,8 @@ class ColereScreenState extends State<ColereScreen> {
                           :colereQuestions[i].libelleUK, style: TextStyle(fontFamily: 'Oswald')),
                         ),
                         ),
-                      Checkbox(
+                          Text(widget.estFrench?'Non':'No', style: TextStyle(fontSize: 10),),
+                        Switch(
                           value: colereQuestions[i].checked,
                           onChanged: (bool value) {
                             colereQuestions[i].checked = value;
@@ -196,6 +197,7 @@ class ColereScreenState extends State<ColereScreen> {
                                 score--;
                             });
                           }),
+                          Text(widget.estFrench?'Oui':'Yes', style: TextStyle(fontSize: 10),),
                     ],
                   )),
         )

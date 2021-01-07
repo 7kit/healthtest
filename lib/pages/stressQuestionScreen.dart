@@ -281,13 +281,15 @@ class StressScreenState extends State<StressScreen> {
                                 ? stressQuestion[i].libelleFr
                                 : stressQuestion[i].libelleUK, style: TextStyle(fontFamily: 'Oswald'),),
                           )),
-                      Checkbox(
+                          Text(widget.estFrench?'Non':'No', style: TextStyle(fontSize: 10),),
+                      Switch(
                           value: stressQuestion[i].checked,
                           onChanged: (bool value) {
                             setState(() {
                               stressQuestion[i].checked = value;
                             });
                           }),
+                          Text(widget.estFrench?'Oui':'Yes', style: TextStyle(fontSize: 10),),
                     ],
                   )),
         ),

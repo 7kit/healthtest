@@ -184,7 +184,8 @@ class GuiltScreenState extends State<GuiltScreen> {
                                 ? guiltQuestion[i].libelleFr
                                 : guiltQuestion[i].libelleUK, style: TextStyle(fontFamily: 'Oswald'),),
                           )),
-                      Checkbox(
+                          Text(widget.estFrench?'Non':'No', style: TextStyle(fontSize: 10),),
+                          Switch(
                           value: guiltQuestion[i].checked,
                           onChanged: (bool value) {
                             guiltQuestion[i].checked = value;
@@ -195,6 +196,7 @@ class GuiltScreenState extends State<GuiltScreen> {
                                 score--;
                             });
                           }),
+                          Text(widget.estFrench?'Oui':'Yes', style: TextStyle(fontSize: 10),),
                     ],
                   )),
         ),
